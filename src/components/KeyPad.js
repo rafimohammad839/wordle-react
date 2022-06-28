@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import JSONLetters from '../data/letters.json'
 
 const KeyPad = ({ usedKeys }) => {
   const [letters, setLetters] = useState(null)
 
   useEffect(() => {
-    fetch('http://localhost:3001/letters')
-      .then(res => res.json())
-      .then(data => setLetters(data))
+    setLetters(JSONLetters);
   }, [])
 
   return (

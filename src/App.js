@@ -2,20 +2,17 @@
 import "./App.css";
 import { useState, useEffect } from "react";
 import Wordle from "./components/Wordle";
+import JSONSol from "./data/solutions.json";
 
 function App() {
   const [solution, setSolution] = useState([]);
   // Fetch solutions from this endpoint : http://localhost:3001/solutions
   useEffect(() => {
-    fetch("http://localhost:3001/solutions")
-      .then((response) => response.json())
-      .then((data) => {
-        // Random number between 0 & 14
-        const randomSolution = data[Math.floor(Math.random() * data.length)];
-        setSolution(randomSolution.word);
-      });
-    }, []);
-    
+    // Random number between 0 & 14
+    const randomSolution = JSONSol[Math.floor(Math.random() * JSONSol.length)];
+    setSolution(randomSolution.word);
+  }, []);
+
   return (
     <div className="App">
       <h1>Wordle</h1>
