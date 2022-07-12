@@ -6,7 +6,6 @@ import JSONSol from "./data/solutions.json";
 
 function App() {
   const [solution, setSolution] = useState([]);
-  // Fetch solutions from this endpoint : http://localhost:3001/solutions
   useEffect(() => {
     // Random number between 0 & 14
     const randomSolution = JSONSol[Math.floor(Math.random() * JSONSol.length)];
